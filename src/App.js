@@ -45,12 +45,12 @@ const App = () => {
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full "> 
             <Navbar />
           </div>
-        </div>
+        
 
         <div>
           <Routes>
 
-            //shortcut CTRL + / for comment ALT+SHIFT+DOWN to copy line ALT+UP/Down to move line to a direction
+            {/* //shortcut CTRL + / for comment ALT+SHIFT+DOWN to copy line ALT+UP/Down to move line to a direction */}
             {/* Dashboard */}
             <Route path="/" element={<Ecommerce />} />
             <Route path="/ecommerce" element={<Ecommerce />} />
@@ -78,7 +78,7 @@ const App = () => {
 
           </Routes>
         </div>
-
+        </div>
       </div>
     </BrowserRouter>
   </div>
