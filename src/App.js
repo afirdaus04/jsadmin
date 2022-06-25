@@ -48,8 +48,9 @@ const App = () => {
         
 
         <div>
-          <Routes>
+          <ThemeSettings />
 
+          <Routes>
             {/* //shortcut CTRL + / for comment ALT+SHIFT+DOWN to copy line ALT+UP/Down to move line to a direction */}
             {/* Dashboard */}
             <Route path="/" element={<Ecommerce />} />
