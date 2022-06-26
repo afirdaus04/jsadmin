@@ -24,7 +24,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor}) => (
 )
 
 const Navbar = () => {
-  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize } = useStateContext ();
+  const {activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize, currentColor  } = useStateContext ();
 
   // Resizing for mobile application use and reduction in screen size
   useEffect(() => {
@@ -55,21 +55,21 @@ const Navbar = () => {
         <NavButton 
           title="Cart" 
           customFunc={() => handleClick('cart')}
-          color="blue" 
+          color={currentColor} 
           icon={<FiShoppingCart/>} 
         />
         <NavButton 
           title="Chat"
           dotColor="#03C9D7" 
           customFunc={() => handleClick('chat')}
-          color="blue" 
+          color={currentColor} 
           icon={<BsChatLeft/>} 
         />
         <NavButton 
           title="Notifications"
           dotColor="#03C9D7" 
           customFunc={() => handleClick('notification')}//singular
-          color="blue" 
+          color={currentColor} 
           icon={<RiNotification3Line/>} 
         />
         <TooltipComponent
@@ -83,12 +83,12 @@ const Navbar = () => {
             src={avatar}
             />
             <p>
-              <span className="text-gray-400 text-14">Hi, </span>{''}
+              <span className="text-gray-400 text-14">Hi, User </span>{''}
               <span className="text-gray-400 font-bold ml-1 text-14"></span>
             </p>
             <MdKeyboardArrowDown
               className="text-gray-400 text-14"
-             />
+             /> 
           </div>
 
         </TooltipComponent>

@@ -10,7 +10,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 
 // Application build-up
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } = useStateContext();
 
   // Function: Sidebar closes if screen size <=900
   const handleCloseSideBar = () => 
@@ -32,7 +32,10 @@ const Sidebar = () => {
         </Link>
         <TooltipComponent content="Menu" position="BottomCenter">
           {/* Button Innards */}
-          <button type="button" onClick= {() => setActiveMenu((prevActiveMenu) => !activeMenu)} className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden" >
+          <button 
+              type="button" 
+              onClick= {() => setActiveMenu((prevActiveMenu) => !activeMenu)} className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden" 
+          >
             <MdOutlineCancel />
           </button>
 
@@ -49,6 +52,9 @@ const Sidebar = () => {
                 to={`/${link.name}`}
                 key={link.name}
                 onClick={handleCloseSideBar} // when click specific link, sidebar closes by default, useful when mobile view
+                
+                style={({isActive}) => ({backgroundColor : isActive ? currentColor: ''})}
+
                 className={({isActive}) => isActive ? activeLink : normalLink}
                 >
                   {link.icon}

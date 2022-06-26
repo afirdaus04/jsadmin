@@ -16,7 +16,7 @@ const ThemeSettings = () => {
         <p className="font-semibold text-xl">Settings</p>
         <button
           type="button"
-          onClick={() => {}}
+          onClick={() => setThemeSettings(false)}
           style={{ color: 'rgb(153, 171, 180)',borderRadius:'50%'}}
           className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
         >
@@ -34,8 +34,8 @@ const ThemeSettings = () => {
             name="theme"
             value="Light"
             className="cursor-pointer"
-            onChange={() => {}}
-            checked={true}
+            onChange={setMode}
+            checked={currentMode ==='Light'}
           />
           <label htmlFor="light" className="ml-2 text-md cursor-pointer">
             Light
@@ -48,8 +48,8 @@ const ThemeSettings = () => {
             name="theme"
             value="Dark"
             className="cursor-pointer"
-            onChange={() => {}}
-            checked={true}
+            onChange={setMode}
+            checked={currentMode ==='Dark'}
           />
           <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
             Dark
@@ -69,9 +69,9 @@ const ThemeSettings = () => {
                   type="button"
                   className="h-10 w-10 rounded-full cursor-pointer"
                   style={{ backgroundColor : item.color }}
-                  onClick={() => {}}
+                  onClick={() => setColor(item.color)}
                 >
-                  <BsCheck className={`ml-2 text-2xl text-white ${false ? 'block' : 'hidden' }`} />
+                  <BsCheck className={`ml-2 text-2xl text-white ${item.color === currentColor ? 'block' : 'hidden' }`} />
                 </button>
                 </div>
             </TooltipComponent>
